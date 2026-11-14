@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cat Age Calculator: Convert Cat Age to Human Years | PawAge</title>
+  <meta name="description" content="Use this cat age calculator to convert your cat’s age to human years, see the feline life stage, and check a year-by-year chart from kitten to senior.">
+  <link rel="canonical" href="/cat-age-calculator/">
+  <meta name="theme-color" content="#4F46E5">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PawAge">
+  <meta property="og:title" content="Cat Age Calculator: Convert Cat Age to Human Years">
+  <meta property="og:description" content="Convert your cat’s age to human years with a steady feline curve, a life-stage label, and a year-by-year chart.">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Cat Age Calculator",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "description": "A cat age calculator that converts a cat's age to human years, identifies the feline life stage, and charts the steady aging pace from kitten to advanced senior.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How accurate is a cat age calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It applies a standard feline aging curve. Individual cats vary with breed, weight, dental health, and medical history, so treat the number as a life-stage guide rather than a clinical reading."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do cat years really equal seven human years?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Not quite. A cat reaches about 15 human years at its first birthday and 24 at its second. After that, each cat year adds roughly four human years, so the old multiplier drifts further off as the cat gets older."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When does a cat become a senior?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "This calculator labels cats mature adults from 7, senior from 11, and advanced seniors from 15. Many veterinarians begin closer monitoring around age 10, even before the senior label applies."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do indoor cats age differently from outdoor cats?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The conversion is identical. Indoor cats often live longer because they face fewer hazards, while outdoor cats carry more injury and infection risk. Lifestyle is useful context, not a separate formula."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I enter a kitten's age?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use months for cats under one year, or open the kitten age calculator for a month-by-month result with development stage, checks, and feeding notes. The first twelve months convert at about 1.25 human years per month."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/" aria-label="PawAge home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="currentColor" role="img" aria-hidden="true">
+            <circle cx="10.2" cy="10" r="2.7"/>
+            <circle cx="16" cy="8.2" r="2.7"/>
+            <circle cx="21.8" cy="10" r="2.7"/>
+            <circle cx="25.8" cy="14.8" r="2.3"/>
+            <path d="M16 13.4c4 0 8.2 4 8.2 7.5 0 2.4-1.9 4-4.2 4-1.6 0-2.8-.7-4-.7s-2.4.7-4 .7c-2.3 0-4.2-1.6-4.2-4 0-3.5 4.2-7.5 8.2-7.5Z"/>
+          </svg>
+        </span>
+        <span class="brand-text">PawAge<small>Dog &amp; cat age calculators</small></span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/">Pet age calculator</a>
+        <a href="/tools/" aria-current="page">Tools</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+      <a class="btn header-cta" href="#calculator">Calculate age</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <p class="hero-badge">Cat years · Life-stage conversion</p>
+        <h1>Cat age calculator: <span class="grad-text">convert your cat’s age to human years</span></h1>
+        <p class="lede">This cat age calculator converts your cat’s age into human years, shows the current feline life stage from kitten to advanced senior and what comes next, and tracks the steady rhythm of cat aging after the second birthday.</p>
+
+        <ul class="hero-pills" aria-label="What this cat calculator includes">
+          <li>Indoor or outdoor</li>
+          <li>Life stage + next stage</li>
+          <li>Year-by-year cat chart</li>
+        </ul>
+
+        <div class="calc" id="calculator" data-species="cat">
+          <div class="calc-top">
+            <span class="calc-kicker">Cat age · Human-year equivalent</span>
+          </div>
+
+          <form id="age-form" novalidate>
+            <div class="age-row">
+              <div class="age-field">
+                <label for="age-years">Years</label>
+                <input id="age-years" name="years" type="number" inputmode="numeric" min="0" max="30" step="1" value="4">
+              </div>
+              <div class="age-field">
+                <label for="age-months">Months</label>
+                <input id="age-months" name="months" type="number" inputmode="numeric" min="0" max="11" step="1" value="0">
+              </div>
+            </div>
+
+            <div class="field-block">
+              <div class="select-field">
+                <label for="lifestyle">Lifestyle (optional)</label>
+                <select id="lifestyle" name="lifestyle">
+                  <option value="indoor">Indoor</option>
+                  <option value="indoor-outdoor">Indoor–outdoor</option>
+                  <option value="outdoor">Outdoor</option>
+                </select>
+              </div>
+              <p class="field-hint">Background information only — lifestyle does not change the age conversion.</p>
+            </div>
+
+            <div class="calc-actions">
+              <button class="btn" type="submit">Calculate</button>
+              <button class="btn-reset" type="button" id="reset">Reset</button>
+            </div>
+          </form>
+
+          <div class="result" aria-live="polite">
+            <div class="result-grid">
+              <div>
+                <span class="result-label" id="result-label">Human equivalent · Cat</span>
+                <span class="result-number" id="human-age">32</span>
+                <span class="result-unit">human years</span>
+              </div>
+              <div class="result-meta">
+                <div><span>Life stage</span><strong id="life-stage">Young adult</strong></div>
+                <div><span>Next stage</span><strong id="next-stage">Mature adult · age 7</strong></div>
+                <div><span>Typical lifespan</span><strong id="lifespan">13–17 years</strong></div>
+              </div>
+            </div>
+            <p class="pace-note" id="pace-note">A long, steady stage. The second year adds about 9 human years. After the second birthday, each cat year adds about 4 human years. Lifestyle is background only and does not change the conversion.</p>
+            <div class="timeline" id="timeline" role="list" aria-label="Cat life stages"></div>
+          </div>
+        </div>
+
+        <p class="hero-note">Estimates only — not a measure of biological age and not veterinary advice.</p>
+        <img src="/assets/images/cat-age-calculator.jpg" alt="Cat age calculator illustration: a tabby cat beside a calculator and a rising curve converting cat age to human years" width="1200" height="675" loading="lazy" style="width:100%;max-width:760px;height:auto;border-radius:20px;display:block;margin:24px auto 0">
+      </div>
+    </section>
+
+    <section class="section section-tint" id="how-it-works">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Feline aging</p>
+          <h2>How the cat age calculator works</h2>
+          <p>Cats sprint through their early development, then age at a nearly constant rate. Adult size never enters the math, so the curve is easier to remember than a dog’s.</p>
+        </div>
+        <div class="split">
+          <article class="panel">
+            <h3>The cat age conversion in three steps</h3>
+            <ol class="rule-list">
+              <li><b>1</b><span><strong>The first year equals about 15 human years.</strong> A kitten moves from infancy to the edge of adolescence in twelve months.</span></li>
+              <li><b>2</b><span><strong>The second year brings the total to 24.</strong> Another nine human years are added before the adult years begin.</span></li>
+              <li><b>3</b><span><strong>Every birthday after that adds about four.</strong> The line stays straight, whether the cat is large, small, indoor, or outdoor.</span></li>
+            </ol>
+            <p class="note">This is why a single “multiply by seven” rule cannot keep up: it undercounts the first two years and overcounts the long adult stretch.</p>
+          </article>
+          <article class="panel">
+            <h3>Reading the calculator result</h3>
+            <p>The human-year figure is a comparison, not a health score. It is most useful for remembering which screenings and comforts belong to the current stage.</p>
+            <p>Months matter for kittens. A six-month-old is not a one-year-old, and the calculator keeps that difference visible instead of rounding it away.</p>
+            <p class="note">Your veterinarian’s assessment of the individual cat always comes first. The <a href="https://icatcare.org/articles/how-to-tell-your-cats-age-in-human-years">International Cat Care guide to telling your cat’s age in human years</a> follows the same front-loaded curve.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="life-stages">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Life stage</p>
+          <h2>When a cat is considered a senior</h2>
+          <p>Cats are usually grouped by age rather than size. Mature adulthood starts around seven, senior status around eleven, and the advanced-senior label at fifteen.</p>
+        </div>
+        <div class="split">
+          <div class="panel">
+            <h3>Cat life stages by age</h3>
+            <ul class="stage-list">
+              <li><b>Kitten</b><span>0–1 year. Rapid growth, play, and the first vaccination series.</span></li>
+              <li><b>Young adult</b><span>1–6 years. A long, stable stretch; annual exams and dental care matter.</span></li>
+              <li><b>Mature adult</b><span>7–10 years. Metabolism and muscle start to shift; twice-yearly checks help.</span></li>
+              <li><b>Senior</b><span>11–14 years. Kidney, thyroid, and blood-pressure screening become routine.</span></li>
+              <li><b>Advanced senior</b><span>15+ years. Comfort, hydration, and gentle handling lead the plan.</span></li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>A note on the cat age labels</h3>
+            <p>Cats are good at hiding discomfort, so the stage label is less a diagnosis and more a reminder to look closer. A cat that seems fine can still be losing muscle, drinking more, or avoiding a jump.</p>
+            <p>The age ranges above describe when monitoring usually increases. They do not predict how long an individual cat will live, and they do not replace an examination.</p>
+            <p class="note">Use the stage to decide what to watch, then let a veterinarian interpret what you find.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="chart">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Reference</p>
+          <h2>Cat age chart, year by year</h2>
+          <p>A quick lookup from kitten to advanced senior. The calculator highlights the nearest row after you enter an age.</p>
+        </div>
+
+        <div class="chart-block">
+          <h3>Cat age chart</h3>
+          <div class="table-wrap table-wrap--narrow">
+            <table>
+              <thead>
+                <tr><th scope="col">Cat age</th><th scope="col">Human-year equivalent</th></tr>
+              </thead>
+              <tbody id="cat-chart">
+                <tr data-cat-age="1"><td>1 year</td><td>15</td></tr>
+                <tr data-cat-age="2"><td>2 years</td><td>24</td></tr>
+                <tr data-cat-age="3"><td>3 years</td><td>28</td></tr>
+                <tr data-cat-age="5"><td>5 years</td><td>36</td></tr>
+                <tr data-cat-age="7"><td>7 years</td><td>44</td></tr>
+                <tr data-cat-age="10"><td>10 years</td><td>56</td></tr>
+                <tr data-cat-age="13"><td>13 years</td><td>68</td></tr>
+                <tr data-cat-age="15"><td>15 years</td><td>76</td></tr>
+                <tr data-cat-age="18"><td>18 years</td><td>88</td></tr>
+                <tr data-cat-age="20"><td>20 years</td><td>96</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="chart-note">Cat aging is close to a straight line after the second birthday: about four human years for every additional cat year.</p>
+          <p class="note">Need every birthday? See the full <a href="/cat-years-to-human-years/">cat years to human years chart</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="indoor-outdoor">
+      <div class="wrap">
+        <div class="split">
+          <div class="prose-block">
+            <p class="eyebrow">Lifestyle</p>
+            <h2>Indoor cats and the cat age curve</h2>
+            <p>The conversion does not change with lifestyle. A four-year-old indoor cat and a four-year-old outdoor cat both land near 32 human years.</p>
+            <p>What lifestyle changes is risk. Outdoor access raises exposure to traffic, fights, parasites, and weather. Indoor living lowers those hazards but can bring weight gain and boredom unless play and portion control keep pace.</p>
+            <p>That is why the calculator asks about lifestyle but keeps it out of the equation: it is context for longevity, not a different aging curve.</p>
+          </div>
+          <aside class="panel">
+            <h3>What shapes a cat’s lifespan</h3>
+            <ul class="stage-list">
+              <li><b>Environment</b><span>Indoor, outdoor, and indoor–outdoor cats face different day-to-day hazards.</span></li>
+              <li><b>Weight</b><span>Lean body condition supports mobility and metabolic health through every stage.</span></li>
+              <li><b>Dental health</b><span>Mouth pain can quietly reduce eating long before weight loss is obvious.</span></li>
+              <li><b>Veterinary care</b><span>Regular screening catches kidney, thyroid, and blood-pressure changes earlier.</span></li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="using-results">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">In practice</p>
+          <h2>Using the cat age calculator result</h2>
+          <p>The human-year figure is most useful as a planning cue. Pair it with the life-stage label, and it points to the food, play, and veterinary rhythm that fit the current season.</p>
+        </div>
+        <div class="split">
+          <article class="panel">
+            <h3>Food, play, and cat age</h3>
+            <p>Kittens and young adults burn energy fast and need calorie-dense meals plus daily play. Once the cat age calculator places a cat in the mature-adult band, metabolism eases off while appetite often does not, so measured portions start to matter more than free feeding.</p>
+            <p>Senior cats do best with easy-to-reach food and water, steady protein, and gentle daily play that protects muscle without stressing joints. Small weight changes in either direction are worth noting, because cats hide illness well.</p>
+          </article>
+          <article class="panel">
+            <h3>Vet visits by life stage</h3>
+            <p>Annual exams carry a cat through the young-adult years. From the mature-adult stage, many veterinarians move to twice-yearly visits with kidney, thyroid, and blood-pressure screening, because those shifts arrive quietly and are easier to manage when caught early.</p>
+            <p>Bring the calculator result to the appointment as a conversation starter. Then watch the daily signals at home — drinking, grooming, jumping, and litter-box habits say more about how a cat is aging than any single number.</p>
+            <p class="note">The <a href="/blog/senior-cat-care/">guide to signs your cat is getting older</a> lists the signals worth tracking.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="myths">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Myths</p>
+          <h2>Common cat age mistakes</h2>
+          <p>Cat age math collects its own shortcuts. These three are worth retiring before they mislead a care decision.</p>
+        </div>
+        <div class="split split--three">
+          <article class="panel">
+            <h3>Multiplying a cat’s age by seven</h3>
+            <p>The old rule misses the sprint at the start of a cat’s life. A one-year-old cat is already about 15 in human years, and a two-year-old is near 24 — far ahead of what multiplying by seven suggests at any point.</p>
+          </article>
+          <article class="panel">
+            <h3>A separate curve for indoor cats</h3>
+            <p>Indoor living changes risk, not the math. An indoor cat converts to human years at exactly the same rate as an outdoor cat; the difference shows up in typical lifespan, not in the formula itself.</p>
+          </article>
+          <article class="panel">
+            <h3>Rounding up kittens</h3>
+            <p>A four-month-old kitten is not “almost one.” The first twelve months carry about 15 human years of development, so months deserve to be entered precisely rather than rounded to a whole year.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="care">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Care</p>
+          <h2>What each cat life stage asks for</h2>
+          <p>Feline needs shift gradually. These themes are general guidance, not a substitute for a veterinarian’s assessment.</p>
+        </div>
+        <div class="split">
+          <div class="panel">
+            <h3>Kitten to mature adult</h3>
+            <ul class="stage-list">
+              <li><b>Kitten</b><span>Growth, play, parasite prevention, and a complete vaccination schedule.</span></li>
+              <li><b>Young adult</b><span>Keep the cat lean, schedule annual exams, and stay ahead of dental disease.</span></li>
+              <li><b>Mature adult</b><span>Twice-yearly checks become useful; watch weight, muscle, hydration, and blood pressure.</span></li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Senior and beyond</h3>
+            <ul class="stage-list">
+              <li><b>Senior</b><span>Screen for kidney and thyroid changes, keep the litter box easy to reach, and offer warm resting spots.</span></li>
+              <li><b>Advanced senior</b><span>Low-sided boxes, soft bedding, gentle grooming, and frequent veterinary review.</span></li>
+            </ul>
+            <p class="note">For the everyday signals behind these themes, see the <a href="/blog/senior-cat-care/">guide to signs your cat is getting older</a>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="faq">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Questions</p>
+          <h2>Cat age calculator FAQ</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>How accurate is a cat age calculator?</summary>
+            <p>It applies a standard feline aging curve. Individual cats vary with breed, weight, dental health, and medical history, so treat the number as a life-stage guide rather than a clinical reading.</p>
+          </details>
+          <details>
+            <summary>Do cat years really equal seven human years?</summary>
+            <p>Not quite. A cat reaches about 15 human years at its first birthday and 24 at its second. After that, each cat year adds roughly four human years, so the old multiplier drifts further off as the cat gets older.</p>
+          </details>
+          <details>
+            <summary>When does a cat become a senior?</summary>
+            <p>This calculator labels cats mature adults from 7, senior from 11, and advanced seniors from 15. Many veterinarians begin closer monitoring around age 10, even before the senior label applies.</p>
+          </details>
+          <details>
+            <summary>Do indoor cats age differently from outdoor cats?</summary>
+            <p>The conversion is identical. Indoor cats often live longer because they face fewer hazards, while outdoor cats carry more injury and infection risk. Lifestyle is useful context, not a separate formula.</p>
+          </details>
+          <details>
+            <summary>How do I enter a kitten’s age?</summary>
+            <p>Use months for cats under one year, or open the <a href="/kitten-age-calculator/">kitten age calculator</a> for a month-by-month result with development stage, checks, and feeding notes. The first twelve months convert at about 1.25 human years per month.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="guides">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Care guide</p>
+          <h2>More cat age tools and care</h2>
+          <p>Want a full lookup table, or help with the senior years? These pages pick up where the calculator leaves off.</p>
+        </div>
+        <div class="guide-grid">
+          <a class="guide-card" href="/cat-years-to-human-years/">
+            <span class="guide-tag">Cat chart</span>
+            <h3>Cat years to human years</h3>
+            <p>Every birthday from one to twenty on the steady feline curve, from kitten to advanced senior.</p>
+            <span class="more">Open the full chart →</span>
+          </a>
+          <a class="guide-card" href="/blog/senior-cat-care/">
+            <span class="guide-tag">Cat care</span>
+            <h3>Signs your cat is getting older</h3>
+            <p>What to watch for in weight, hydration, grooming, mobility, and routine — and when to ask your vet.</p>
+            <span class="more">Read the signs →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="dog-calculator">
+      <div class="wrap">
+        <div class="calc-cta">
+          <div>
+            <h2>Pair it with the dog age calculator</h2>
+            <p>The dog age calculator adds adult size to the same format, so the yearly pace reflects the breed’s build.</p>
+          </div>
+          <a class="btn" href="/dog-age-calculator/">Dog age calculator</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="footer-brand" href="/" aria-label="PawAge home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+                <circle cx="10.2" cy="10" r="2.7"/>
+                <circle cx="16" cy="8.2" r="2.7"/>
+                <circle cx="21.8" cy="10" r="2.7"/>
+                <circle cx="25.8" cy="14.8" r="2.3"/>
+                <path d="M16 13.4c4 0 8.2 4 8.2 7.5 0 2.4-1.9 4-4.2 4-1.6 0-2.8-.7-4-.7s-2.4.7-4 .7c-2.3 0-4.2-1.6-4.2-4 0-3.5 4.2-7.5 8.2-7.5Z"/>
+              </svg>
+            </span>
+            PawAge
+          </a>
+          <p class="footer-blurb">Age tools and practical care guides for dogs and cats — with the method and the charts in plain language.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Calculators</h3>
+          <a href="/">Pet age calculator</a>
+          <a href="/dog-age-calculator/">Dog age calculator</a>
+          <a href="/cat-age-calculator/">Cat age calculator</a>
+          <a href="/kitten-age-calculator/">Kitten age calculator</a>
+        </div>
+        <div class="footer-col">
+          <h3>Charts</h3>
+          <a href="/dog-years-to-human-years/">Dog years to human years</a>
+          <a href="/cat-years-to-human-years/">Cat years to human years</a>
+        </div>
+        <div class="footer-col">
+          <h3>Blog</h3>
+          <a href="/blog/">All posts</a>
+          <a href="/blog/senior-dog-care/">Senior dog care</a>
+          <a href="/blog/senior-cat-care/">Senior cat care</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Estimates only. PawAge is for general information and is not veterinary advice. Always discuss health changes with your veterinarian.</p>
+        <p>© 2026 PawAge</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/calculator.js" defer></script>
+</body>
+</html>

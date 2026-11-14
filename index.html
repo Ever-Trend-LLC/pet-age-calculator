@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Pet Age Calculator for Dogs and Cats in Human Years</title>
-  <meta name="description" content="Use this pet age calculator to convert a dog or cat's age to human years. Switch between dog and cat, choose a size, and see the life stage and chart.">
+  <title>Pet Age Calculator for Dogs, Cats, and Kittens</title>
+  <meta name="description" content="Use this pet age calculator to convert a dog, cat, or kitten’s age to human years. Pick a calculator, get a result in 2–3 minutes, and open the matching chart.">
   <link rel="canonical" href="/">
   <meta name="theme-color" content="#4F46E5">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,8 +14,8 @@
   <link rel="stylesheet" href="/assets/styles.css">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="PawAge">
-  <meta property="og:title" content="Pet Age Calculator: One Tool for Dogs and Cats">
-  <meta property="og:description" content="Convert a dog or cat's age to human years, with life stages and year-by-year charts.">
+  <meta property="og:title" content="Pet Age Calculator: Dogs, Cats, and Kittens">
+  <meta property="og:description" content="Convert a dog, cat, or kitten’s age to human years. Pick a calculator and get a result in 2–3 minutes.">
   <meta name="twitter:card" content="summary">
   <script type="application/ld+json">
   {
@@ -25,7 +25,7 @@
     "applicationCategory": "HealthApplication",
     "operatingSystem": "Any",
     "browserRequirements": "Requires JavaScript",
-    "description": "A pet age calculator that converts a dog or cat's age to human years, shows the life stage, and links to dedicated dog and cat tools and charts.",
+    "description": "A pet age calculator hub for dogs, cats, and kittens, with dedicated calculators and year-by-year conversion charts.",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -67,7 +67,7 @@
         "name": "Which page should I use?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Use the dog or cat calculator for a dedicated result and stage details. Use the conversion charts when you want to scan several ages at once."
+          "text": "Use the dog, cat, or kitten calculator for a dedicated result and stage details. Use the conversion charts when you want to scan several ages at once."
         }
       }
     ]
@@ -96,146 +96,47 @@
         <a href="/tools/">Tools</a>
         <a href="/blog/">Blog</a>
       </nav>
-      <a class="btn header-cta" href="#calculator">Calculate age</a>
+      <a class="btn header-cta" href="#calculators">Choose a calculator</a>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero">
+    <section class="hero" id="calculators">
       <div class="wrap">
-        <p class="hero-badge">Pet age · Dogs and cats</p>
-        <h1>Pet age calculator: <span class="grad-text">dog and cat ages in human years</span></h1>
-        <p class="lede">This pet age calculator converts a dog or cat’s age into human years in seconds. Choose dog or cat, adjust the details, and the pet age calculator shows the life stage, what comes next, and the yearly aging chart.</p>
+        <p class="hero-badge">Pet age · Dogs, cats, and kittens</p>
+        <h1>Pet age calculator: <span class="grad-text">dog, cat, and kitten ages in human years</span></h1>
+        <p class="lede">This pet age calculator hub points you to the right conversion. Pick a dog, cat, or kitten tool, enter an age, and you’ll get a human-year result plus the life stage that should shape food, checkups, and daily care.</p>
 
-        <ul class="hero-pills" aria-label="What the calculator includes">
-          <li>Dog size aware</li>
-          <li>Cat life stages</li>
-          <li>Both aging charts</li>
+        <p class="hero-expect">Expect a result in 2–3 minutes. Each calculator asks only for age — plus size for dogs, indoor/outdoor for cats, or months for kittens — then returns human years and a life stage on the same screen.</p>
+
+        <ul class="hero-pills" aria-label="What you can calculate">
+          <li>2–3 minutes to a result</li>
+          <li>Dog, cat, or kitten</li>
+          <li>Charts for every birthday</li>
         </ul>
 
-        <div class="calc" id="calculator">
-          <div class="calc-top">
-            <span class="calc-kicker">Pet age · Human-year equivalent</span>
-            <div class="segmented" role="group" aria-label="Choose pet type">
-              <button type="button" data-pet="dog" aria-pressed="true">Dog</button>
-              <button type="button" data-pet="cat" aria-pressed="false">Cat</button>
-            </div>
-          </div>
-
-          <form id="age-form" novalidate>
-            <div class="age-row">
-              <div class="age-field">
-                <label for="age-years">Years</label>
-                <input id="age-years" name="years" type="number" inputmode="numeric" min="0" max="30" step="1" value="4">
-              </div>
-              <div class="age-field">
-                <label for="age-months">Months</label>
-                <input id="age-months" name="months" type="number" inputmode="numeric" min="0" max="11" step="1" value="0">
-              </div>
-            </div>
-
-            <div id="dog-fields">
-              <fieldset class="field-block">
-                <legend>Dog size</legend>
-                <p class="field-hint">Use your dog’s expected healthy adult weight, including while they are still growing.</p>
-                <div class="size-grid">
-                  <label class="size-option">
-                    <input type="radio" name="dog-size" value="small">
-                    <span>
-                      <span class="size-name">Small</span>
-                      <span class="size-weight">Under 20 lb<br>under 9 kg</span>
-                    </span>
-                  </label>
-                  <label class="size-option">
-                    <input type="radio" name="dog-size" value="medium" checked>
-                    <span>
-                      <span class="size-name">Medium</span>
-                      <span class="size-weight">20–50 lb<br>9–22 kg</span>
-                    </span>
-                  </label>
-                  <label class="size-option">
-                    <input type="radio" name="dog-size" value="large">
-                    <span>
-                      <span class="size-name">Large</span>
-                      <span class="size-weight">50–90 lb<br>23–40 kg</span>
-                    </span>
-                  </label>
-                  <label class="size-option">
-                    <input type="radio" name="dog-size" value="giant">
-                    <span>
-                      <span class="size-name">Giant</span>
-                      <span class="size-weight">90 lb+<br>41 kg+</span>
-                    </span>
-                  </label>
-                </div>
-              </fieldset>
-            </div>
-
-            <div id="cat-fields" hidden>
-              <div class="field-block">
-                <div class="select-field">
-                  <label for="lifestyle">Lifestyle (optional)</label>
-                  <select id="lifestyle" name="lifestyle">
-                    <option value="indoor">Indoor</option>
-                    <option value="indoor-outdoor">Indoor–outdoor</option>
-                    <option value="outdoor">Outdoor</option>
-                  </select>
-                </div>
-                <p class="field-hint">Background information only — lifestyle does not change the age conversion.</p>
-              </div>
-            </div>
-
-            <div class="calc-actions">
-              <button class="btn" type="submit">Calculate</button>
-              <button class="btn-reset" type="button" id="reset">Reset</button>
-            </div>
-          </form>
-
-          <div class="result" aria-live="polite">
-            <div class="result-grid">
-              <div>
-                <span class="result-label" id="result-label">Human equivalent · Dog</span>
-                <span class="result-number" id="human-age">34</span>
-                <span class="result-unit">human years</span>
-              </div>
-              <div class="result-meta">
-                <div><span>Life stage</span><strong id="life-stage">Mature adult</strong></div>
-                <div><span>Next stage</span><strong id="next-stage">Senior · age 7</strong></div>
-                <div><span>Typical lifespan</span><strong id="lifespan">10–13 years</strong></div>
-              </div>
-            </div>
-            <p class="pace-note" id="pace-note">A quiet aging stage. Keep muscle, joints, and weight steady. After the second birthday, each dog year adds about 5 human years for a medium dog.</p>
-            <div class="timeline" id="timeline" role="list" aria-label="Life stages"></div>
-          </div>
+        <div class="chooser-grid chooser-grid--three">
+          <a class="chooser-card" href="/dog-age-calculator/">
+            <span class="chooser-tag">Dogs</span>
+            <h2>Dog age calculator</h2>
+            <p>Age plus adult size. Human years and the current life stage land on the same screen.</p>
+            <span class="chooser-more">Open the dog calculator →</span>
+          </a>
+          <a class="chooser-card" href="/cat-age-calculator/">
+            <span class="chooser-tag">Cats</span>
+            <h2>Cat age calculator</h2>
+            <p>Age plus indoor or outdoor. Human years and the feline life stage, from kitten onward.</p>
+            <span class="chooser-more">Open the cat calculator →</span>
+          </a>
+          <a class="chooser-card" href="/kitten-age-calculator/">
+            <span class="chooser-tag">Kittens</span>
+            <h2>Kitten age calculator</h2>
+            <p>Months to human years, plus the development stage, which checks are due, and what to feed.</p>
+            <span class="chooser-more">Open the kitten calculator →</span>
+          </a>
         </div>
 
         <p class="hero-note">Estimates only — not a measure of biological age and not veterinary advice.</p>
-
-        <img src="/assets/images/pet-age-calculator-hero.jpg" alt="Pet age calculator illustration: a dog and a cat with their ages converted to human years" width="1200" height="675" loading="lazy" style="width:100%;max-width:760px;height:auto;border-radius:20px;display:block;margin:24px auto 0">
-      </div>
-    </section>
-
-    <section class="section section-tint" id="calculators">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Two tools</p>
-          <h2>Pet age calculator curves for dogs and cats</h2>
-          <p>The calculator above gives a quick answer. For a page built around one animal — with its own method notes, stage table, and FAQ — use the dedicated tool.</p>
-        </div>
-        <div class="chooser-grid">
-          <a class="chooser-card" href="/tools/dog-age-calculator/">
-            <span class="chooser-tag">Dogs</span>
-            <h2>Dog age calculator</h2>
-            <p>Size-aware conversion for small, medium, large, and giant breeds, with the stage your dog is in now.</p>
-            <span class="chooser-more">Open the dog calculator →</span>
-          </a>
-          <a class="chooser-card" href="/tools/cat-age-calculator/">
-            <span class="chooser-tag">Cats</span>
-            <h2>Cat age calculator</h2>
-            <p>A steady feline conversion with kitten-to-advanced-senior stages and an optional lifestyle note.</p>
-            <span class="chooser-more">Open the cat calculator →</span>
-          </a>
-        </div>
       </div>
     </section>
 
@@ -247,13 +148,13 @@
           <p>If you want a full lookup table instead of a single result, each chart page lists every birthday from one to twenty with the human-year equivalent.</p>
         </div>
         <div class="guide-grid">
-          <a class="guide-card" href="/tools/dog-years-to-human-years/">
+          <a class="guide-card" href="/dog-years-to-human-years/">
             <span class="guide-tag">Dog chart</span>
             <h3>Dog years to human years</h3>
             <p>See how adult size changes the yearly pace, from a 15-human-year first birthday through the senior years.</p>
             <span class="more">Open the dog chart →</span>
           </a>
-          <a class="guide-card" href="/tools/cat-years-to-human-years/">
+          <a class="guide-card" href="/cat-years-to-human-years/">
             <span class="guide-tag">Cat chart</span>
             <h3>Cat years to human years</h3>
             <p>Follow the steady four-human-year rhythm that starts after the second birthday and continues into old age.</p>
@@ -274,13 +175,13 @@
           <article class="panel">
             <h3>Dog pet age follows adult size</h3>
             <p>Small breeds add about four human years per birthday after year two; giant breeds add about seven. The same seven-year-old dog can be a mature adult or already senior, depending on build.</p>
-            <p class="note"><a href="/tools/dog-age-calculator/">See the dog method →</a></p>
+            <p class="note"><a href="/dog-age-calculator/">See the dog method →</a></p>
             <p class="note">For an outside take on the same math, read the American Kennel Club on <a href="https://www.akc.org/expert-advice/health/how-to-calculate-dog-years-to-human-years/" rel="noopener">how to calculate dog years to human years</a>.</p>
           </article>
           <article class="panel">
             <h3>Cat pet age stays steady</h3>
             <p>Adult size never enters the feline formula. After the second birthday, the curve adds roughly four human years every year, which keeps the stage boundaries easy to remember.</p>
-            <p class="note"><a href="/tools/cat-age-calculator/">See the cat method →</a></p>
+            <p class="note"><a href="/cat-age-calculator/">See the cat method →</a> · <a href="/kitten-age-calculator/">Kitten calculator →</a></p>
           </article>
         </div>
       </div>
@@ -291,18 +192,18 @@
         <div class="section-head">
           <p class="eyebrow">Method detail</p>
           <h2>Inside the pet age calculator method</h2>
-          <p>Every pet age calculator result on this page follows the same staged curve. The math is public and repeatable, tuned to the way dogs and cats actually mature — fast in the first two years, steadier after that.</p>
+          <p>Every pet age calculator result on this site follows the same staged curve. The math is public and repeatable, tuned to the way dogs and cats actually mature — fast in the first two years, steadier after that.</p>
         </div>
         <div class="split">
           <article class="panel">
             <h3>The first pet years</h3>
             <p>A dog or cat reaches roughly fifteen human years by the first birthday and about twenty-four by the second. That steep start reflects real development: puberty, adult teeth, and near-adult size all arrive within months, not decades. The calculator front-loads those milestones, so a one-year-old pet is never treated like a seven-year-old child.</p>
-            <p>Months still matter at this point. An eight-month-old puppy is a teenager, not half an adult, which is why the form asks for months as well as years.</p>
+            <p>Months still matter at this point. An eight-month-old puppy is a teenager, not half an adult, which is why the calculators ask for months as well as years.</p>
           </article>
           <article class="panel">
             <h3>Adult pet years after year two</h3>
             <p>From the third birthday onward the curve flattens. Cats add close to four human years per year at any size. Dogs add four to seven, scaled by expected adult weight. The calculator applies the size you select to every year after year two, which is why two dogs of the same age can land a decade apart in human terms.</p>
-            <p>The <a href="/tools/dog-years-to-human-years/">dog conversion chart</a> and the <a href="/tools/cat-years-to-human-years/">cat conversion chart</a> list the full curve, birthday by birthday, so you can see the pace for yourself.</p>
+            <p>The <a href="/dog-years-to-human-years/">dog conversion chart</a> and the <a href="/cat-years-to-human-years/">cat conversion chart</a> list the full curve, birthday by birthday, so you can see the pace for yourself.</p>
           </article>
         </div>
       </div>
@@ -352,7 +253,7 @@
           </article>
           <article class="panel">
             <h3>Mixing up dog and cat age rules</h3>
-            <p>Cats do not age like small dogs. The feline curve ignores size entirely, so a Maine Coon and a Siamese share the same math. Running a cat through the dog curve — or the reverse — quietly breaks the result, which is why the toggle at the top of the form switches the whole method, not just the label.</p>
+            <p>Cats do not age like small dogs. The feline curve ignores size entirely, so a Maine Coon and a Siamese share the same math. Running a cat through the dog curve — or the reverse — quietly breaks the result, which is why the dog, cat, and kitten calculators each use their own method.</p>
           </article>
         </div>
       </div>
@@ -409,7 +310,7 @@
           </details>
           <details>
             <summary>Which page should I use?</summary>
-            <p>Use the dog or cat calculator for a dedicated result and stage details. Use the conversion charts when you want to scan several ages at once.</p>
+            <p>Use the dog, cat, or kitten calculator for a dedicated result and stage details. Use the conversion charts when you want to scan several ages at once.</p>
           </details>
         </div>
       </div>
@@ -420,7 +321,7 @@
         <div class="section-head">
           <p class="eyebrow">Care guides</p>
           <h2>Pet age guides for senior care</h2>
-          <p>For the age conversion, use the calculators above. These guides focus on the daily details that make aging easier for a dog or cat.</p>
+          <p>For the age conversion, use the dog, cat, or kitten calculator. These guides focus on the daily details that make aging easier for a dog or cat.</p>
         </div>
         <div class="guide-grid">
           <a class="guide-card" href="/blog/senior-dog-care/">
@@ -461,13 +362,14 @@
         <div class="footer-col">
           <h3>Calculators</h3>
           <a href="/">Pet age calculator</a>
-          <a href="/tools/dog-age-calculator/">Dog age calculator</a>
-          <a href="/tools/cat-age-calculator/">Cat age calculator</a>
+          <a href="/dog-age-calculator/">Dog age calculator</a>
+          <a href="/cat-age-calculator/">Cat age calculator</a>
+          <a href="/kitten-age-calculator/">Kitten age calculator</a>
         </div>
         <div class="footer-col">
           <h3>Charts</h3>
-          <a href="/tools/dog-years-to-human-years/">Dog years to human years</a>
-          <a href="/tools/cat-years-to-human-years/">Cat years to human years</a>
+          <a href="/dog-years-to-human-years/">Dog years to human years</a>
+          <a href="/cat-years-to-human-years/">Cat years to human years</a>
         </div>
         <div class="footer-col">
           <h3>Blog</h3>
@@ -483,6 +385,5 @@
     </div>
   </footer>
 
-  <script src="/assets/calculator.js" defer></script>
 </body>
 </html>

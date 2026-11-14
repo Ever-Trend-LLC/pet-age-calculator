@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kitten Age Calculator: Months to Human Years | PawAge</title>
+  <meta name="description" content="Use this kitten age calculator to convert months into human years, see the development stage, and check which vaccines and foods belong to that window.">
+  <link rel="canonical" href="/kitten-age-calculator/">
+  <meta name="theme-color" content="#4F46E5">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="PawAge">
+  <meta property="og:title" content="Kitten Age Calculator: Months to Human Years">
+  <meta property="og:description" content="Convert a kitten’s age in months to human years, with the development stage, vet checks, and feeding notes.">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Kitten Age Calculator",
+    "applicationCategory": "HealthApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript",
+    "description": "A kitten age calculator that converts months into human years and shows the development stage, typical checks, and feeding notes.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does a kitten age calculator work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The first twelve months convert at about 1.25 human years per month, so a six-month-old kitten is about 7.5 in human years and a one-year-old is about 15. The result also names the development stage and the checks and food that usually belong to it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How old is a 3-month-old kitten in human years?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "About 3.8 human years in this model. Three months is still the socialization window: first core vaccines, frequent handling, and complete kitten food."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How old is a 6-month-old kitten in human years?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "About 7.5 human years. Many kittens are entering adolescence here, finishing booster vaccines, and discussing spay or neuter with the vet, while still eating kitten food."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When should a kitten switch to adult cat food?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Around 12 months for most cats. Kitten food is denser in calories and nutrients for growth. Switching earlier can leave a still-growing cat short of what it needs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I use the kitten calculator or the cat age calculator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use the kitten calculator for ages in months, development stages, and feeding or vaccine notes. Use the cat age calculator once you are thinking in years, indoor versus outdoor, and adult life stages."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/" aria-label="PawAge home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" fill="currentColor" role="img" aria-hidden="true">
+            <circle cx="10.2" cy="10" r="2.7"/>
+            <circle cx="16" cy="8.2" r="2.7"/>
+            <circle cx="21.8" cy="10" r="2.7"/>
+            <circle cx="25.8" cy="14.8" r="2.3"/>
+            <path d="M16 13.4c4 0 8.2 4 8.2 7.5 0 2.4-1.9 4-4.2 4-1.6 0-2.8-.7-4-.7s-2.4.7-4 .7c-2.3 0-4.2-1.6-4.2-4 0-3.5 4.2-7.5 8.2-7.5Z"/>
+          </svg>
+        </span>
+        <span class="brand-text">PawAge<small>Dog &amp; cat age calculators</small></span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="/">Pet age calculator</a>
+        <a href="/tools/">Tools</a>
+        <a href="/blog/">Blog</a>
+      </nav>
+      <a class="btn header-cta" href="#calculator">Calculate age</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <p class="hero-badge">Kitten years · Month-by-month</p>
+        <h1>Kitten age calculator: <span class="grad-text">months to human years</span></h1>
+        <p class="lede">This kitten age calculator converts your kitten’s age in months into human years, names the development stage, and lists the checks and food that usually belong to that window.</p>
+
+        <ul class="hero-pills" aria-label="What this kitten calculator includes">
+          <li>Age in months</li>
+          <li>Development stage</li>
+          <li>Checks and feeding notes</li>
+        </ul>
+
+        <div class="calc" id="calculator" data-species="kitten">
+          <div class="calc-top">
+            <span class="calc-kicker">Kitten age · Human-year equivalent</span>
+          </div>
+
+          <form id="age-form" novalidate>
+            <div class="age-row" style="grid-template-columns: 1fr;">
+              <div class="age-field">
+                <label for="age-months">Age in months</label>
+                <input id="age-months" name="months" type="number" inputmode="numeric" min="0" max="24" step="1" value="4">
+              </div>
+            </div>
+            <p class="field-hint">Use whole months. A 6-week-old kitten is closest to 1–2 months; stay on this page until about 12–18 months, then use the cat calculator.</p>
+
+            <div class="calc-actions">
+              <button class="btn" type="submit">Calculate</button>
+              <button class="btn-reset" type="button" id="reset">Reset</button>
+            </div>
+          </form>
+
+          <div class="result" aria-live="polite">
+            <div class="result-grid">
+              <div>
+                <span class="result-label" id="result-label">Human equivalent · Kitten</span>
+                <span class="result-number" id="human-age">5</span>
+                <span class="result-unit">human years</span>
+              </div>
+              <div class="result-meta">
+                <div><span>Development stage</span><strong id="life-stage">Juvenile</strong></div>
+                <div><span>Next stage</span><strong id="next-stage">Adolescent · 6 months</strong></div>
+                <div><span>Typical lifespan</span><strong id="lifespan">13–17 years</strong></div>
+              </div>
+            </div>
+            <p class="pace-note" id="pace-note">Rapid growth and teething. Play is how they learn bite inhibition and coordination. The first twelve months convert at about 1.25 human years per month.</p>
+            <div class="timeline" id="timeline" role="list" aria-label="Kitten development stages"></div>
+            <div class="result-extras">
+              <div>
+                <span>Vet checks</span>
+                <p id="vet-checks">Continue vaccine boosters. Spay/neuter is often discussed from 4–6 months.</p>
+              </div>
+              <div>
+                <span>Food</span>
+                <p id="food-note">Kitten food only — adult food is too lean for this growth spurt.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="hero-note">Estimates only — not a measure of biological age and not veterinary advice. Vaccine timing always follows your veterinarian and local law.</p>
+        <img src="/assets/images/cat-age-calculator.jpg" alt="Kitten age calculator illustration: a young tabby cat beside a calculator converting months to human years" width="1200" height="675" loading="lazy" style="width:100%;max-width:760px;height:auto;border-radius:20px;display:block;margin:24px auto 0">
+      </div>
+    </section>
+
+    <section class="section section-tint" id="how-it-works">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Kitten aging</p>
+          <h2>How the kitten age calculator works</h2>
+          <p>The first year is the steepest stretch of a cat’s life. Counting in months keeps a four-month-old from being treated like a one-year-old.</p>
+        </div>
+        <div class="split">
+          <article class="panel">
+            <h3>The conversion in three steps</h3>
+            <ol class="rule-list">
+              <li><b>1</b><span><strong>Each of the first twelve months is about 1.25 human years.</strong> A six-month-old kitten lands near 7.5.</span></li>
+              <li><b>2</b><span><strong>The first birthday is about 15 human years.</strong> Infancy through early adolescence fits into one year.</span></li>
+              <li><b>3</b><span><strong>Year two then adds about nine.</strong> After that, use the <a href="/cat-age-calculator/">cat age calculator</a> — the adult curve adds about four human years per birthday.</span></li>
+            </ol>
+            <p class="note">This is the same feline curve used on the rest of the site, just counted in months instead of years.</p>
+          </article>
+          <article class="panel">
+            <h3>Why the extras sit next to the number</h3>
+            <p>A human-year figure is not enough at this age. A two-month-old and an eight-month-old are both “kittens,” but they need different vaccines, different meals, and different handling.</p>
+            <p>The calculator therefore returns the development stage, the checks that usually fall in that window, and the food that matches growth rather than adult maintenance.</p>
+            <p class="note">Schedules vary by clinic and region. Treat the notes as a prompt for your vet visit, not a protocol.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="life-stages">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Development</p>
+          <h2>Kitten stages, checks, and food</h2>
+          <p>These ranges match the labels in the result. They describe typical timing, not a deadline your kitten has to hit.</p>
+        </div>
+        <div class="split">
+          <div class="panel">
+            <h3>Newborn to juvenile</h3>
+            <ul class="stage-list">
+              <li><b>Newborn · 0 months</b><span>Warmth, queen’s milk or milk replacer, daily weight. No vaccines yet.</span></li>
+              <li><b>Weaning · 1 month</b><span>First wellness exam, deworming, and the first tastes of wet kitten food.</span></li>
+              <li><b>Socialization · 2–3 months</b><span>First core vaccines around 6–8 weeks, litter habits, calm handling, complete kitten food.</span></li>
+              <li><b>Juvenile · 4–5 months</b><span>Booster vaccines, teething, play that teaches bite inhibition. Stay on kitten food.</span></li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3>Adolescent to young adult</h3>
+            <ul class="stage-list">
+              <li><b>Adolescent · 6–11 months</b><span>Looks grown, still filling out. Finish boosters, rabies as required, discuss spay/neuter. Measure meals.</span></li>
+              <li><b>Young adult · 12 months</b><span>Growth is mostly complete. Annual exams from here, and a slow switch to adult cat food.</span></li>
+            </ul>
+            <p class="note">For birthdays after the first year, the <a href="/cat-years-to-human-years/">cat years to human years chart</a> lists every year through twenty.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="chart">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Reference</p>
+          <h2>Kitten age in human years, month by month</h2>
+          <p>The first twelve months on the same curve. After you enter an age, the nearest row is highlighted.</p>
+        </div>
+        <div class="chart-block">
+          <h3>Kitten months to human years</h3>
+          <div class="table-wrap table-wrap--narrow">
+            <table>
+              <thead>
+                <tr><th scope="col">Kitten age</th><th scope="col">Human-year equivalent</th><th scope="col">Stage</th></tr>
+              </thead>
+              <tbody id="kitten-chart">
+                <tr data-kitten-months="1"><td>1 month</td><td>1.3</td><td>Weaning</td></tr>
+                <tr data-kitten-months="2"><td>2 months</td><td>2.5</td><td>Socialization</td></tr>
+                <tr data-kitten-months="3"><td>3 months</td><td>3.8</td><td>Socialization</td></tr>
+                <tr data-kitten-months="4"><td>4 months</td><td>5</td><td>Juvenile</td></tr>
+                <tr data-kitten-months="5"><td>5 months</td><td>6.3</td><td>Juvenile</td></tr>
+                <tr data-kitten-months="6"><td>6 months</td><td>7.5</td><td>Adolescent</td></tr>
+                <tr data-kitten-months="7"><td>7 months</td><td>8.8</td><td>Adolescent</td></tr>
+                <tr data-kitten-months="8"><td>8 months</td><td>10</td><td>Adolescent</td></tr>
+                <tr data-kitten-months="9"><td>9 months</td><td>11.3</td><td>Adolescent</td></tr>
+                <tr data-kitten-months="10"><td>10 months</td><td>12.5</td><td>Adolescent</td></tr>
+                <tr data-kitten-months="11"><td>11 months</td><td>13.8</td><td>Adolescent</td></tr>
+                <tr data-kitten-months="12"><td>12 months</td><td>15</td><td>Young adult</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="chart-note">Values use 1.25 human years per month in the first year. They are estimates, not a growth chart for an individual kitten.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="using-results">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">In practice</p>
+          <h2>Using the kitten age calculator result</h2>
+          <p>Read the number with the stage. The pair tells you whether this week is about warmth and milk, vaccines and play, or measured meals and a surgery consult.</p>
+        </div>
+        <div class="split">
+          <article class="panel">
+            <h3>What to feed at each kitten age</h3>
+            <p>Newborns stay on queen’s milk or a kitten milk replacer. Cow’s milk is the wrong recipe and often causes diarrhea. From weaning onward, a complete kitten food — wet, dry, or both — covers growth better than adult food, which is too lean for this stretch.</p>
+            <p>Stay on kitten food until about twelve months. Measure meals once adolescence starts; free feeding is how a still-growing kitten quietly becomes a heavy yearling.</p>
+          </article>
+          <article class="panel">
+            <h3>Which checks belong to this month</h3>
+            <p>First vaccines usually begin around 6–8 weeks, then boosters every 3–4 weeks until the series is complete. Deworming often starts even earlier. Spay or neuter is commonly discussed from four to six months, and rabies follows local law.</p>
+            <p>Bring the calculator result to the appointment as a conversation starter. Your veterinarian will still set the actual dates — especially for orphaned, outdoor, or underweight kittens.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="myths">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Myths</p>
+          <h2>Common kitten age mistakes</h2>
+        </div>
+        <div class="split split--three">
+          <article class="panel">
+            <h3>Rounding up to a year</h3>
+            <p>A four-month-old is not “almost one.” The first twelve months carry about 15 human years, so rounding away the months hides most of childhood.</p>
+          </article>
+          <article class="panel">
+            <h3>Switching to adult food early</h3>
+            <p>Adult cat food is built for maintenance. Kitten food is built for growth. Switching at six months to “keep them lean” usually just cuts the nutrients they still need.</p>
+          </article>
+          <article class="panel">
+            <h3>Using the dog curve</h3>
+            <p>Kittens follow the feline line, not a small-dog multiplier. A six-month-old kitten is about 7.5 human years here, not 3.5, and not 42.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Questions</p>
+          <h2>Kitten age calculator FAQ</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>How does a kitten age calculator work?</summary>
+            <p>The first twelve months convert at about 1.25 human years per month, so a six-month-old kitten is about 7.5 in human years and a one-year-old is about 15. The result also names the development stage and the checks and food that usually belong to it.</p>
+          </details>
+          <details>
+            <summary>How old is a 3-month-old kitten in human years?</summary>
+            <p>About 3.8 human years in this model. Three months is still the socialization window: first core vaccines, frequent handling, and complete kitten food.</p>
+          </details>
+          <details>
+            <summary>How old is a 6-month-old kitten in human years?</summary>
+            <p>About 7.5 human years. Many kittens are entering adolescence here, finishing booster vaccines, and discussing spay or neuter with the vet, while still eating kitten food.</p>
+          </details>
+          <details>
+            <summary>When should a kitten switch to adult cat food?</summary>
+            <p>Around 12 months for most cats. Kitten food is denser in calories and nutrients for growth. Switching earlier can leave a still-growing cat short of what it needs.</p>
+          </details>
+          <details>
+            <summary>Should I use the kitten calculator or the cat age calculator?</summary>
+            <p>Use the kitten calculator for ages in months, development stages, and feeding or vaccine notes. Use the <a href="/cat-age-calculator/">cat age calculator</a> once you are thinking in years, indoor versus outdoor, and adult life stages.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tint" id="guides">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Keep going</p>
+          <h2>From kitten months to adult cat years</h2>
+          <p>When birthdays replace months, these two pages pick up the same feline curve.</p>
+        </div>
+        <div class="guide-grid">
+          <a class="guide-card" href="/cat-age-calculator/">
+            <span class="guide-tag">Cat calculator</span>
+            <h3>Cat age calculator</h3>
+            <p>Years plus indoor or outdoor. Human years and the adult feline life stage, from young adult to advanced senior.</p>
+            <span class="more">Open the cat calculator →</span>
+          </a>
+          <a class="guide-card" href="/cat-years-to-human-years/">
+            <span class="guide-tag">Cat chart</span>
+            <h3>Cat years to human years</h3>
+            <p>Every birthday from one to twenty on the steady feline curve, including 3 cat years = 28 human years.</p>
+            <span class="more">Open the cat chart →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid">
+        <div>
+          <a class="footer-brand" href="/" aria-label="PawAge home">
+            <span class="brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+                <circle cx="10.2" cy="10" r="2.7"/>
+                <circle cx="16" cy="8.2" r="2.7"/>
+                <circle cx="21.8" cy="10" r="2.7"/>
+                <circle cx="25.8" cy="14.8" r="2.3"/>
+                <path d="M16 13.4c4 0 8.2 4 8.2 7.5 0 2.4-1.9 4-4.2 4-1.6 0-2.8-.7-4-.7s-2.4.7-4 .7c-2.3 0-4.2-1.6-4.2-4 0-3.5 4.2-7.5 8.2-7.5Z"/>
+              </svg>
+            </span>
+            PawAge
+          </a>
+          <p class="footer-blurb">Age tools and practical care guides for dogs and cats — with the method and the charts in plain language.</p>
+        </div>
+        <div class="footer-col">
+          <h3>Calculators</h3>
+          <a href="/">Pet age calculator</a>
+          <a href="/dog-age-calculator/">Dog age calculator</a>
+          <a href="/cat-age-calculator/">Cat age calculator</a>
+          <a href="/kitten-age-calculator/">Kitten age calculator</a>
+        </div>
+        <div class="footer-col">
+          <h3>Charts</h3>
+          <a href="/dog-years-to-human-years/">Dog years to human years</a>
+          <a href="/cat-years-to-human-years/">Cat years to human years</a>
+        </div>
+        <div class="footer-col">
+          <h3>Blog</h3>
+          <a href="/blog/">All posts</a>
+          <a href="/blog/senior-dog-care/">Senior dog care</a>
+          <a href="/blog/senior-cat-care/">Senior cat care</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Estimates only. PawAge is for general information and is not veterinary advice. Always discuss health changes with your veterinarian.</p>
+        <p>© 2026 PawAge</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/assets/calculator.js" defer></script>
+</body>
+</html>

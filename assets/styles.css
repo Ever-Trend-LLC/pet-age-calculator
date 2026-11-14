@@ -381,6 +381,56 @@ h3 {
   color: var(--muted);
 }
 
+.hero-expect {
+  max-width: 680px;
+  margin: 22px auto 0;
+  padding: 14px 18px;
+  background: #f3f1ff;
+  border: 1px solid #ded9ff;
+  border-radius: 16px;
+  color: var(--purple-ink);
+  font-size: 0.95rem;
+  font-weight: 650;
+  line-height: 1.55;
+}
+
+.hero--chart {
+  text-align: left;
+  padding-bottom: clamp(28px, 4vw, 44px);
+}
+
+.hero--chart h1 {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none;
+  font-size: clamp(2.05rem, 4.6vw, 3.35rem);
+}
+
+.hero--chart .lede {
+  margin-left: 0;
+  max-width: 720px;
+}
+
+.hero--chart .hero-pills {
+  justify-content: flex-start;
+}
+
+.hero--chart .hero-note {
+  margin-left: 0;
+}
+
+.chart-first {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.chart-first h2 {
+  margin: 0 0 10px;
+  font-size: 1.18rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
 /* Calculator */
 
 .calc {
@@ -641,6 +691,89 @@ h3 {
   flex-wrap: wrap;
 }
 
+.calc--compact {
+  max-width: none;
+  margin-top: 22px;
+  padding: 16px 18px 18px;
+  border-radius: 20px;
+}
+
+.calc--compact .compact-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.calc--compact .age-field {
+  flex: 0 1 160px;
+  min-width: 132px;
+}
+
+.calc--compact .age-field input {
+  font-size: 1.7rem;
+}
+
+.calc--compact .select-field {
+  flex: 1 1 220px;
+  min-width: 180px;
+}
+
+.calc--compact .select-field select {
+  max-width: none;
+}
+
+.calc--compact .calc-actions {
+  margin-top: 0;
+  padding-bottom: 4px;
+}
+
+.compact-link {
+  color: var(--purple);
+  font-size: 0.84rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.compact-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.compact-result {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 12px;
+  margin: 14px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 0.92rem;
+  color: var(--ink-2);
+}
+
+.compact-result #result-label {
+  width: 100%;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.compact-result #human-age {
+  font-size: 1.7rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.compact-result-meta {
+  color: var(--ink-2);
+  font-weight: 650;
+}
+
 /* Result */
 
 .result {
@@ -782,6 +915,36 @@ h3 {
   color: var(--purple-ink);
   font-weight: 800;
   box-shadow: 0 8px 18px -10px rgba(20, 10, 70, 0.5);
+}
+
+.result-extras {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.result-extras > div {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+
+.result-extras span {
+  display: block;
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 5px;
+}
+
+.result-extras p {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #fff;
 }
 
 @keyframes result-pop {
@@ -1122,6 +1285,11 @@ tbody td:first-child {
   max-width: 920px;
   margin: 36px auto 0;
   text-align: left;
+}
+
+.chooser-grid--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 1100px;
 }
 
 .chooser-card {
@@ -1610,7 +1778,8 @@ tbody td:first-child {
   }
 
   .split,
-  .guide-grid {
+  .guide-grid,
+  .chooser-grid--three {
     grid-template-columns: 1fr;
   }
 
@@ -1648,9 +1817,19 @@ tbody td:first-child {
     font-size: 0.74rem;
   }
 
-  .chooser-grid {
+  .chooser-grid,
+  .chooser-grid--three {
     grid-template-columns: 1fr;
     margin-top: 26px;
+  }
+
+  .calc--compact .compact-row {
+    align-items: stretch;
+  }
+
+  .calc--compact .age-field,
+  .calc--compact .select-field {
+    flex: 1 1 100%;
   }
 
   .hero {
@@ -1688,6 +1867,10 @@ tbody td:first-child {
 
   .result-number {
     font-size: 3.2rem;
+  }
+
+  .result-extras {
+    grid-template-columns: 1fr;
   }
 
   .stage-list li {
