@@ -22,6 +22,11 @@
     ? speciesAttr
     : null;
   var compact = root.dataset.compact === 'true';
+  // Calculators without a fixed species (homepage hero, /tools/) switch
+  // between dog, cat, and kitten in place.
+  var switchable = !fixedSpecies;
+  var lastPet = null;
+  var AGE_KEY = 'agepaws:age-months';
 
   var state = {
     pet: fixedSpecies || 'dog',
@@ -32,6 +37,7 @@
     form: document.getElementById('age-form'),
     years: document.getElementById('age-years'),
     months: document.getElementById('age-months'),
+    monthsLabel: document.querySelector('label[for="age-months"]'),
     lifestyle: document.getElementById('lifestyle'),
     reset: document.getElementById('reset'),
     resultLabel: document.getElementById('result-label'),
@@ -229,6 +235,62 @@
     el.speciesButtons.forEach(function (button) {
       button.setAttribute('aria-pressed', String(button.dataset.pet === state.pet));
     });
+
+    // Exposes the active species to CSS (kitten mode hides the years field,
+    // where only months apply).
+    root.dataset.pet = state.pet;
+
+    if (!switchable) return;
+
+    if (el.months) {
+      el.months.max = state.pet === 'kitten' ? '24' : '11';
+      if (el.monthsLabel) el.monthsLabel.textContent = state.pet === 'kitten' ? 'Age in months' : 'Months';
+    }
+
+    // Keep the same age when moving between kitten (months only) and
+    // dog/cat (years + months).
+    if (lastPet && lastPet !== state.pet && el.years && el.months) {
+      if (state.pet === 'kitten') {
+        var total = (parseInt(el.years.value, 10) || 0) * 12 + (parseInt(el.months.value, 10) || 0);
+        el.years.value = '0';
+        el.months.value = String(clamp(total || 4, 1, 24));
+      } else if (lastPet === 'kitten') {
+        var kittenMonths = parseInt(el.months.value, 10) || 0;
+        el.years.value = String(Math.floor(kittenMonths / 12));
+        el.months.value = String(kittenMonths % 12);
+      }
+    }
+
+    lastPet = state.pet;
+  }
+
+  // The age entered on one tool follows the visitor to the next one.
+  function totalMonths() {
+    if (state.pet === 'kitten') return el.months ? parseInt(el.months.value, 10) || 0 : 0;
+    var years = el.years ? parseInt(el.years.value, 10) || 0 : 0;
+    var months = el.months ? parseInt(el.months.value, 10) || 0 : 0;
+    return years * 12 + months;
+  }
+
+  function saveAge() {
+    var total = totalMonths();
+    if (total <= 0) return;
+    try { sessionStorage.setItem(AGE_KEY, String(total)); } catch (e) { /* storage unavailable */ }
+  }
+
+  function restoreAge() {
+    var stored;
+    try { stored = parseInt(sessionStorage.getItem(AGE_KEY), 10); } catch (e) { return; }
+    if (!isFinite(stored) || stored <= 0) return;
+
+    if (state.pet === 'kitten') {
+      if (el.months) el.months.value = String(clamp(stored, 1, 24));
+    } else if (el.months) {
+      if (el.years) el.years.value = String(clamp(Math.floor(stored / 12), 0, 30));
+      el.months.value = String(stored % 12);
+    } else if (el.years) {
+      el.years.value = String(clamp(Math.max(1, Math.round(stored / 12)), 0, 30));
+    }
   }
 
   function render(animate) {
@@ -281,6 +343,7 @@
     }
 
     highlightChart(state.pet, age);
+    if (hasAge) saveAge();
 
     if (animate && hasAge && el.humanAge) {
       el.humanAge.classList.remove('is-popping');
@@ -367,12 +430,15 @@
       if (el.years) el.years.value = compact ? '4' : (state.pet === 'kitten' ? '0' : '4');
       if (el.months) el.months.value = state.pet === 'kitten' ? '4' : '0';
       if (el.lifestyle) el.lifestyle.value = 'indoor';
+      lastPet = null;
+      try { sessionStorage.removeItem(AGE_KEY); } catch (e) { /* storage unavailable */ }
       syncSpecies();
       syncSize();
       render(true);
     });
   }
 
+  restoreAge();
   syncSpecies();
   syncSize();
   render(false);

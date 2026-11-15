@@ -170,7 +170,8 @@ h3 {
   flex-wrap: wrap;
 }
 
-.site-nav a {
+.site-nav > a,
+.nav-drop-btn {
   font-size: 0.85rem;
   font-weight: 650;
   color: var(--ink-2);
@@ -181,14 +182,18 @@ h3 {
   white-space: nowrap;
 }
 
-.site-nav a:hover,
-.site-nav a:focus-visible {
+.site-nav > a:hover,
+.site-nav > a:focus-visible,
+.nav-drop-btn:hover,
+.nav-drop-btn:focus-visible,
+.nav-drop.is-open .nav-drop-btn {
   color: var(--purple);
   background: var(--bg-lav);
   outline: none;
 }
 
-.site-nav a[aria-current="page"] {
+.site-nav > a[aria-current="page"],
+.nav-drop[data-current="true"] .nav-drop-btn {
   color: var(--purple);
   background: var(--bg-lav);
 }
@@ -312,9 +317,9 @@ h3 {
 
 .hero h1 {
   margin: 0 auto 18px;
-  max-width: 1000px;
-  font-size: clamp(2.5rem, 6vw, 4.75rem);
-  line-height: 1.02;
+  max-width: 900px;
+  font-size: clamp(2.05rem, 4vw, 3.1rem);
+  line-height: 1.06;
   font-weight: 800;
   letter-spacing: -0.045em;
 }
@@ -1468,7 +1473,7 @@ tbody td:first-child {
 .article-hero h1 {
   margin: 0 0 16px;
   max-width: 780px;
-  font-size: clamp(2.05rem, 4.5vw, 3.3rem);
+  font-size: clamp(1.85rem, 3.6vw, 2.6rem);
   line-height: 1.05;
   font-weight: 800;
   letter-spacing: -0.04em;
@@ -1758,7 +1763,8 @@ tbody td:first-child {
     gap: 2px;
   }
 
-  .site-nav a {
+  .site-nav > a,
+  .nav-drop-btn {
     padding: 8px 12px;
     font-size: 0.8rem;
   }
@@ -1812,7 +1818,8 @@ tbody td:first-child {
     row-gap: 2px;
   }
 
-  .site-nav a {
+  .site-nav > a,
+  .nav-drop-btn {
     padding: 7px 9px;
     font-size: 0.74rem;
   }
@@ -1837,7 +1844,7 @@ tbody td:first-child {
   }
 
   .hero h1 {
-    font-size: clamp(2.15rem, 9.4vw, 2.75rem);
+    font-size: clamp(1.75rem, 7.6vw, 2.2rem);
   }
 
   .hero-pills li {
@@ -1911,5 +1918,566 @@ tbody td:first-child {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Homepage v2 — hero becomes the tool
+   Scoped under .home so the other nine pages keep their current layout.
+   ------------------------------------------------------------------ */
+
+.home .hero {
+  text-align: left;
+  padding: clamp(28px, 4vw, 52px) 0 clamp(30px, 4vw, 46px);
+}
+
+.home .hero-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  gap: clamp(26px, 3.4vw, 52px);
+  align-items: start;
+}
+
+.home .hero-badge {
+  margin-bottom: 14px;
+  font-size: 0.62rem;
+}
+
+/* 76px -> ~41px: the headline stops competing with the tool */
+.home .hero h1 {
+  margin: 0 0 14px;
+  max-width: 16em;
+  font-size: clamp(1.95rem, 3vw, 2.55rem);
+  line-height: 1.1;
+  letter-spacing: -0.038em;
+}
+
+.home .hero h1 .grad-text {
+  margin-top: 3px;
+  font-size: 0.72em;
+  letter-spacing: -0.028em;
+  line-height: 1.2;
+}
+
+.home .hero .lede {
+  margin: 0;
+  max-width: 30em;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.home .hero-pills {
+  justify-content: flex-start;
+  margin-top: 18px;
+}
+
+.home .hero-note {
+  margin-top: 14px;
+  text-align: left;
+}
+
+/* --- calculator card in the hero --- */
+
+.home .hero-calc {
+  max-width: none;
+  margin: 0;
+  padding: 18px;
+  border-radius: 20px;
+  box-shadow: 0 26px 60px -38px rgba(35, 23, 120, 0.5), 0 1px 2px rgba(35, 23, 120, 0.06);
+}
+
+.home .hero-calc .calc-top {
+  margin-bottom: 14px;
+  gap: 12px;
+}
+
+.home .hero-calc .segmented {
+  display: flex;
+  flex: 1 1 100%;
+  justify-content: stretch;
+}
+
+.home .hero-calc .segmented button {
+  flex: 1 1 0;
+  padding: 8px 0;
+  font-size: 0.84rem;
+  text-align: center;
+}
+
+.home .hero-calc .age-row {
+  gap: 10px;
+}
+
+.home .hero-calc .field-block {
+  margin-top: 14px;
+}
+
+.home .hero-calc .size-grid {
+  gap: 6px;
+}
+
+.home .hero-calc .size-option > span {
+  padding: 9px 4px;
+  align-items: center;
+  border-radius: 11px;
+}
+
+.home .hero-calc .size-name {
+  font-size: 0.8rem;
+}
+
+.home .hero-calc .size-option input:checked + span::after {
+  display: none;
+}
+
+.home .hero-calc .calc-actions {
+  margin-top: 14px;
+}
+
+/* result panel: stacked so the number never overflows a 500px column */
+.home .hero-calc .result {
+  margin-top: 16px;
+  padding: 16px 16px 14px;
+  border-radius: 15px;
+}
+
+.home .hero-calc .result-grid {
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.home .hero-calc .result-number {
+  font-size: clamp(2.6rem, 5.4vw, 3.15rem);
+}
+
+.home .hero-calc .result-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.home .hero-calc .result-meta > div,
+.home .hero-calc .result-meta > div:first-child {
+  display: block;
+  padding: 0;
+  border-bottom: 0;
+}
+
+.home .hero-calc .result-meta span {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.home .hero-calc .result-meta strong {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.84rem;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.home .hero-calc .pace-note {
+  margin-top: 12px;
+  padding-left: 10px;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+/* kitten mode only needs one field */
+.calc[data-pet="kitten"] .field-years {
+  display: none;
+}
+
+/* --- dedicated calculator cards --- */
+
+.home-chooser {
+  padding-top: clamp(26px, 3.4vw, 42px);
+}
+
+.home-chooser .chooser-grid {
+  margin-top: 24px;
+}
+
+.home-chooser .chooser-card {
+  padding: 22px;
+  gap: 8px;
+}
+
+.home-chooser .chooser-card h2 {
+  font-size: 1.15rem;
+  line-height: 1.25;
+}
+
+.home-chooser .chooser-card p {
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+.home-chooser .chooser-more {
+  padding-top: 10px;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 980px) {
+  .home .hero-split {
+    grid-template-columns: 1fr;
+  }
+
+  .home .hero h1 {
+    max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .home .hero-calc {
+    padding: 15px;
+  }
+
+  .home .hero-calc .calc-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .home .hero-calc .segmented {
+    flex: 1 1 auto;
+    width: 100%;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Header: Tools dropdown
+   ------------------------------------------------------------------ */
+
+.nav-drop {
+  position: relative;
+}
+
+.nav-drop-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 0;
+  background: none;
+  font-family: var(--sans);
+  cursor: pointer;
+}
+
+.nav-chevron {
+  width: 12px;
+  height: 12px;
+  transition: transform 0.18s ease;
+}
+
+.nav-drop.is-open .nav-chevron {
+  transform: rotate(180deg);
+}
+
+.nav-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  z-index: 90;
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 14px;
+  width: 560px;
+  padding: 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 30px 70px -30px rgba(35, 23, 120, 0.38), 0 2px 6px rgba(35, 23, 120, 0.05);
+  transform: translateX(-50%);
+  text-align: left;
+}
+
+/* invisible bridge so the menu stays open while the pointer crosses the gap */
+.nav-menu::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -12px;
+  height: 12px;
+}
+
+.nav-drop.is-open .nav-menu {
+  display: grid;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .nav-drop:hover .nav-menu {
+    display: grid;
+  }
+
+  .nav-drop:hover .nav-chevron {
+    transform: rotate(180deg);
+  }
+}
+
+.nav-menu-group {
+  display: grid;
+  align-content: start;
+  gap: 2px;
+}
+
+.nav-menu-label {
+  margin: 2px 10px 6px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.nav-menu a {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--ink);
+  transition: background 0.15s ease;
+}
+
+.nav-menu a:hover,
+.nav-menu a:focus-visible {
+  background: var(--bg-soft);
+  outline: none;
+}
+
+.nav-menu a[aria-current="page"] {
+  background: var(--bg-lav);
+}
+
+.nav-menu-icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: var(--bg-lav);
+  color: var(--purple);
+}
+
+.nav-menu-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.nav-menu a[aria-current="page"] .nav-menu-icon {
+  background: var(--grad);
+  color: #fff;
+}
+
+.nav-menu-title {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 750;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.nav-menu-desc {
+  display: block;
+  margin-top: 1px;
+  font-size: 0.74rem;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+/* ------------------------------------------------------------------
+   Tool pages: switcher tabs + workspace hero
+   ------------------------------------------------------------------ */
+
+.tool-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: max-content;
+  max-width: 100%;
+  margin: 0 0 22px;
+  padding: 5px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: 0 10px 26px -20px rgba(35, 23, 120, 0.4);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tool-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tool-tabs a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--ink-2);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.tool-tabs a svg {
+  width: 16px;
+  height: 16px;
+  opacity: 0.75;
+}
+
+.tool-tabs a:hover,
+.tool-tabs a:focus-visible {
+  background: var(--bg-soft);
+  color: var(--purple);
+  outline: none;
+}
+
+.tool-tabs a[aria-current="page"] {
+  background: var(--grad);
+  color: #fff;
+  box-shadow: 0 8px 18px -10px rgba(91, 76, 245, 0.8);
+}
+
+.tool-tabs a[aria-current="page"] svg {
+  opacity: 1;
+}
+
+.tool-tabs-divider {
+  flex: none;
+  width: 1px;
+  height: 20px;
+  margin: 0 4px;
+  background: var(--line-strong);
+}
+
+.hero--tool {
+  text-align: left;
+  padding-top: clamp(22px, 3vw, 34px);
+}
+
+.hero--tool h1,
+.hero--chart.hero--tool h1 {
+  margin: 0 0 10px;
+  max-width: 860px;
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+.hero--tool h1 .grad-text {
+  display: inline;
+  margin: 0;
+}
+
+.hero--tool .lede {
+  margin: 0;
+  max-width: 720px;
+  font-size: 0.98rem;
+}
+
+.hero--tool .hero-note {
+  margin-left: 0;
+}
+
+.hero--tool .calc {
+  max-width: none;
+  margin-top: 24px;
+}
+
+.hero--tool .calc--compact {
+  margin-top: 20px;
+}
+
+/* full calculators: inputs left, result right */
+@media (min-width: 961px) {
+  .hero--tool .calc:not(.calc--compact) {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    column-gap: clamp(22px, 3vw, 34px);
+    align-items: start;
+  }
+
+  .hero--tool .calc:not(.calc--compact) > .calc-top {
+    grid-column: 1 / -1;
+  }
+
+  .hero--tool .calc:not(.calc--compact) > form {
+    grid-column: 1;
+  }
+
+  .hero--tool .calc:not(.calc--compact) > .result {
+    grid-column: 2;
+    margin-top: 0;
+  }
+
+  .hero--tool .calc:not(.calc--compact) .result-grid {
+    grid-template-columns: 1fr 1.15fr;
+  }
+}
+
+/* switchable calculator (/tools/) */
+.kitten-hint {
+  display: none;
+  margin-top: 10px;
+}
+
+.calc[data-pet="kitten"] .kitten-hint {
+  display: block;
+}
+
+.calc[data-pet="kitten"] .age-row {
+  grid-template-columns: 1fr;
+}
+
+.calc:not([data-species]):not([data-pet="kitten"]) .result-extras {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  /* anchor the menu to the sticky header so it spans the page width */
+  .nav-drop {
+    position: static;
+  }
+
+  .nav-menu {
+    top: calc(100% - 2px);
+    left: 24px;
+    transform: none;
+    width: min(560px, calc(100vw - 48px));
+  }
+
+  .nav-menu::before {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-menu {
+    left: 16px;
+    grid-template-columns: 1fr;
+    width: calc(100vw - 32px);
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+  }
+
+  .tool-tabs {
+    width: auto;
+    margin-left: -2px;
+    margin-right: -2px;
+  }
+
+  .tool-tabs a {
+    padding: 7px 11px;
+    font-size: 0.8rem;
   }
 }

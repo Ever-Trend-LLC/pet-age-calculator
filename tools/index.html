@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="/assets/styles.css?v=20261115">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="AgePaws">
   <meta property="og:url" content="https://agepaws.com/tools/">
@@ -59,79 +59,154 @@
       </a>
       <nav class="site-nav" aria-label="Primary">
         <a href="/">Pet age calculator</a>
-        <a href="/tools/" aria-current="page">Tools</a>
+        <div class="nav-drop" data-current="true">
+          <button class="nav-drop-btn" type="button" aria-expanded="false" aria-controls="tools-menu">Tools<svg class="nav-chevron" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nav-menu" id="tools-menu">
+            <div class="nav-menu-group">
+              <p class="nav-menu-label">Calculators</p>
+              <a href="/tools/" aria-current="page"><span class="nav-menu-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="5.5" height="5.5" rx="1.5"/><rect x="11.5" y="3" width="5.5" height="5.5" rx="1.5"/><rect x="3" y="11.5" width="5.5" height="5.5" rx="1.5"/><rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1.5"/></svg></span><span><span class="nav-menu-title">All-in-one calculator</span><span class="nav-menu-desc">Switch between dog, cat, and kitten</span></span></a>
+              <a href="/dog-age-calculator/"><span class="nav-menu-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="2.5" width="12" height="15" rx="2.5"/><path d="M7 6.5h6M7 10.5h.01M10 10.5h.01M13 10.5h.01M7 13.8h.01M10 13.8h.01M13 13.8h.01" stroke-linecap="round"/></svg></span><span><span class="nav-menu-title">Dog age calculator</span><span class="nav-menu-desc">Human years by adult size</span></span></a>
+              <a href="/cat-age-calculator/"><span class="nav-menu-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="2.5" width="12" height="15" rx="2.5"/><path d="M7 6.5h6M7 10.5h.01M10 10.5h.01M13 10.5h.01M7 13.8h.01M10 13.8h.01M13 13.8h.01" stroke-linecap="round"/></svg></span><span><span class="nav-menu-title">Cat age calculator</span><span class="nav-menu-desc">Any breed, indoor or outdoor</span></span></a>
+              <a href="/kitten-age-calculator/"><span class="nav-menu-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="2.5" width="12" height="15" rx="2.5"/><path d="M7 6.5h6M7 10.5h.01M10 10.5h.01M13 10.5h.01M7 13.8h.01M10 13.8h.01M13 13.8h.01" stroke-linecap="round"/></svg></span><span><span class="nav-menu-title">Kitten age calculator</span><span class="nav-menu-desc">Months to human years</span></span></a>
+            </div>
+            <div class="nav-menu-group">
+              <p class="nav-menu-label">Charts</p>
+              <a href="/dog-years-to-human-years/"><span class="nav-menu-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3.5 16.5h13M6 13.5V9M10 13.5V5.5M14 13.5v-6" stroke-linecap="round"/></svg></span><span><span class="nav-menu-title">Dog years chart</span><span class="nav-menu-desc">Ages 1–20 by size</span></span></a>
+              <a href="/cat-years-to-human-years/"><span class="nav-menu-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3.5 16.5h13M6 13.5V9M10 13.5V5.5M14 13.5v-6" stroke-linecap="round"/></svg></span><span><span class="nav-menu-title">Cat years chart</span><span class="nav-menu-desc">Ages 1–20 on one curve</span></span></a>
+            </div>
+          </div>
+        </div>
         <a href="/blog/">Blog</a>
       </nav>
-      <a class="btn header-cta" href="/">Calculate age</a>
+      <a class="btn header-cta" href="#calculator">Calculate age</a>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero">
+    <section class="hero hero--tool">
       <div class="wrap">
-        <p class="hero-badge">Tools · Dogs, cats, and kittens</p>
-        <h1>Pet age tools: <span class="grad-text">calculators and charts</span></h1>
-        <p class="lede">The AgePaws pet age tools collect five free utilities in one place. Open a calculator when you want a single answer for your pet, or use a chart page when you want to compare several ages at once.</p>
-        <ul class="hero-pills" aria-label="What this page collects">
-          <li>Three calculators</li>
-          <li>Two chart pages</li>
-          <li>Same staged method</li>
-        </ul>
-        <img src="/assets/images/pet-age-tools.jpg" alt="Pet age tools for dogs and cats: age calculators and year-by-year conversion charts" width="1200" height="675" loading="lazy" style="width:100%;max-width:760px;height:auto;border-radius:20px;display:block;margin:24px auto 0">
-      </div>
-    </section>
+        <nav class="tool-tabs" aria-label="Switch tool">
+          <a href="/tools/" aria-current="page"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="5.5" height="5.5" rx="1.5"/><rect x="11.5" y="3" width="5.5" height="5.5" rx="1.5"/><rect x="3" y="11.5" width="5.5" height="5.5" rx="1.5"/><rect x="11.5" y="11.5" width="5.5" height="5.5" rx="1.5"/></svg>All pets</a>
+          <a href="/dog-age-calculator/"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="2.5" width="12" height="15" rx="2.5"/><path d="M7 6.5h6M7 10.5h.01M10 10.5h.01M13 10.5h.01M7 13.8h.01M10 13.8h.01M13 13.8h.01" stroke-linecap="round"/></svg>Dog</a>
+          <a href="/cat-age-calculator/"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="2.5" width="12" height="15" rx="2.5"/><path d="M7 6.5h6M7 10.5h.01M10 10.5h.01M13 10.5h.01M7 13.8h.01M10 13.8h.01M13 13.8h.01" stroke-linecap="round"/></svg>Cat</a>
+          <a href="/kitten-age-calculator/"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="4" y="2.5" width="12" height="15" rx="2.5"/><path d="M7 6.5h6M7 10.5h.01M10 10.5h.01M13 10.5h.01M7 13.8h.01M10 13.8h.01M13 13.8h.01" stroke-linecap="round"/></svg>Kitten</a>
+          <span class="tool-tabs-divider" aria-hidden="true"></span>
+          <a href="/dog-years-to-human-years/"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3.5 16.5h13M6 13.5V9M10 13.5V5.5M14 13.5v-6" stroke-linecap="round"/></svg>Dog chart</a>
+          <a href="/cat-years-to-human-years/"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M3.5 16.5h13M6 13.5V9M10 13.5V5.5M14 13.5v-6" stroke-linecap="round"/></svg>Cat chart</a>
+        </nav>
+        <h1>Pet age tools: <span class="grad-text">dog, cat, and kitten in one calculator</span></h1>
+        <p class="lede">Switch between dog, cat, and kitten without leaving the page — the age you entered carries over. Need a full lookup table instead? Open the dog or cat chart from the tabs above.</p>
 
-    <section class="section" id="calculators">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Calculators</p>
-          <h2>Pet age calculators for dogs, cats, and kittens</h2>
-          <p>Each calculator takes an age, applies the curve for that animal, and returns a human-year equivalent with the current life stage.</p>
-        </div>
-        <div class="chooser-grid chooser-grid--three">
-          <a class="chooser-card" href="/dog-age-calculator/">
-            <span class="chooser-tag">Dogs</span>
-            <h2>Dog age calculator</h2>
-            <p>Size-aware conversion for small, medium, large, and giant breeds, with the stage your dog is in now.</p>
-            <span class="chooser-more">Open the dog calculator →</span>
-          </a>
-          <a class="chooser-card" href="/cat-age-calculator/">
-            <span class="chooser-tag">Cats</span>
-            <h2>Cat age calculator</h2>
-            <p>A steady feline conversion with kitten-to-advanced-senior stages and an optional lifestyle note.</p>
-            <span class="chooser-more">Open the cat calculator →</span>
-          </a>
-          <a class="chooser-card" href="/kitten-age-calculator/">
-            <span class="chooser-tag">Kittens</span>
-            <h2>Kitten age calculator</h2>
-            <p>Months to human years, plus the development stage, typical checks, and what to feed.</p>
-            <span class="chooser-more">Open the kitten calculator →</span>
-          </a>
-        </div>
-      </div>
-    </section>
+        <div class="calc" id="calculator">
+          <div class="calc-top">
+            <span class="calc-kicker">Choose a pet</span>
+            <div class="segmented" role="group" aria-label="Pet type">
+              <button type="button" data-pet="dog" aria-pressed="true">Dog</button>
+              <button type="button" data-pet="cat" aria-pressed="false">Cat</button>
+              <button type="button" data-pet="kitten" aria-pressed="false">Kitten</button>
+            </div>
+          </div>
 
-    <section class="section section-tint" id="charts">
-      <div class="wrap">
-        <div class="section-head">
-          <p class="eyebrow">Charts</p>
-          <h2>Pet age charts and year-by-year tables</h2>
-          <p>Every birthday from one to twenty, in one table. Useful when you want to look up an age without entering it.</p>
+          <form id="age-form" novalidate>
+            <div class="age-row">
+              <div class="age-field field-years">
+                <label for="age-years">Years</label>
+                <input id="age-years" name="years" type="number" inputmode="numeric" min="0" max="30" step="1" value="4">
+              </div>
+              <div class="age-field">
+                <label for="age-months">Months</label>
+                <input id="age-months" name="months" type="number" inputmode="numeric" min="0" max="11" step="1" value="0">
+              </div>
+            </div>
+
+            <div id="dog-fields">
+              <fieldset class="field-block">
+                <legend>Adult size</legend>
+                <p class="field-hint">Use your dog’s expected healthy adult weight, including while they are still growing.</p>
+                <div class="size-grid">
+                  <label class="size-option">
+                    <input type="radio" name="dog-size" value="small">
+                    <span>
+                      <span class="size-name">Small</span>
+                      <span class="size-weight">Under 20 lb<br>under 9 kg</span>
+                    </span>
+                  </label>
+                  <label class="size-option">
+                    <input type="radio" name="dog-size" value="medium" checked>
+                    <span>
+                      <span class="size-name">Medium</span>
+                      <span class="size-weight">20–50 lb<br>9–22 kg</span>
+                    </span>
+                  </label>
+                  <label class="size-option">
+                    <input type="radio" name="dog-size" value="large">
+                    <span>
+                      <span class="size-name">Large</span>
+                      <span class="size-weight">50–90 lb<br>23–40 kg</span>
+                    </span>
+                  </label>
+                  <label class="size-option">
+                    <input type="radio" name="dog-size" value="giant">
+                    <span>
+                      <span class="size-name">Giant</span>
+                      <span class="size-weight">90 lb+<br>41 kg+</span>
+                    </span>
+                  </label>
+                </div>
+              </fieldset>
+            </div>
+
+            <div id="cat-fields" hidden>
+              <div class="field-block">
+                <div class="select-field">
+                  <label for="lifestyle">Lifestyle (optional)</label>
+                  <select id="lifestyle" name="lifestyle">
+                    <option value="indoor">Indoor</option>
+                    <option value="indoor-outdoor">Indoor–outdoor</option>
+                    <option value="outdoor">Outdoor</option>
+                  </select>
+                </div>
+                <p class="field-hint">Background information only — lifestyle does not change the age conversion.</p>
+              </div>
+            </div>
+
+            <p class="field-hint kitten-hint">Use whole months, up to 24. After about 12–18 months, switch to Cat.</p>
+
+            <div class="calc-actions">
+              <button class="btn" type="submit">Calculate</button>
+              <button class="btn-reset" type="button" id="reset">Reset</button>
+            </div>
+          </form>
+
+          <div class="result" aria-live="polite">
+            <div class="result-grid">
+              <div>
+                <span class="result-label" id="result-label">Human equivalent · Dog</span>
+                <span class="result-number" id="human-age">34</span>
+                <span class="result-unit">human years</span>
+              </div>
+              <div class="result-meta">
+                <div><span>Life stage</span><strong id="life-stage">Mature adult</strong></div>
+                <div><span>Next stage</span><strong id="next-stage">Senior · age 7</strong></div>
+                <div><span>Typical lifespan</span><strong id="lifespan">10–13 years</strong></div>
+              </div>
+            </div>
+            <p class="pace-note" id="pace-note">A quiet aging stage. Keep muscle, joints, and weight steady. After the second birthday, each dog year adds about 5 human years for a medium dog.</p>
+            <div class="timeline" id="timeline" role="list" aria-label="Life stages"></div>
+            <div class="result-extras">
+              <div>
+                <span>Vet checks</span>
+                <p id="vet-checks">—</p>
+              </div>
+              <div>
+                <span>Food</span>
+                <p id="food-note">—</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="guide-grid">
-          <a class="guide-card" href="/dog-years-to-human-years/">
-            <span class="guide-tag">Dog chart</span>
-            <h3>Dog age in human years</h3>
-            <p>Four columns — small, medium, large, and giant — so the same birthday reads differently by adult size.</p>
-            <span class="more">Open the dog chart →</span>
-          </a>
-          <a class="guide-card" href="/cat-years-to-human-years/">
-            <span class="guide-tag">Cat chart</span>
-            <h3>Cat age in human years</h3>
-            <p>One steady curve from the fast first year through the four-human-year rhythm of adult life.</p>
-            <span class="more">Open the cat chart →</span>
-          </a>
-        </div>
+
+        <p class="hero-note">Estimates only — not a measure of biological age and not veterinary advice.</p>
       </div>
     </section>
 
@@ -262,10 +337,10 @@
       <div class="wrap">
         <div class="calc-cta">
           <div>
-            <h2>One quick pet age number</h2>
-            <p>The pet age calculator hub on the home page sends you to the dog, cat, or kitten tool, so you can get an answer in two or three minutes.</p>
+            <h2>Need every birthday at once?</h2>
+            <p>The chart pages list ages 1 to 20 with the human-year equivalent, split by adult size for dogs.</p>
           </div>
-          <a class="btn" href="/">Open the pet age calculator</a>
+          <a class="btn" href="/dog-years-to-human-years/">Open the dog chart</a>
         </div>
       </div>
     </section>
@@ -314,5 +389,7 @@
       </div>
     </div>
   </footer>
+  <script src="/assets/calculator.js?v=20261115" defer></script>
+  <script src="/assets/nav.js?v=20261115" defer></script>
 </body>
 </html>
